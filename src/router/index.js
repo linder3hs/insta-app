@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Search from "../pages/Search";
-import UserInfo from "../pages/UserInfo";
+import Users from "../pages/Users";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Search />} />
-        <Route path="/user/:username" element={<UserInfo />} />
+        <Route path="/users/:username" element={<Users />} />
       </Routes>
     </BrowserRouter>
   );
