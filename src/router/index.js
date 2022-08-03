@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Search from "../pages/Search";
-import Users from "../pages/Users";
+import { SearchView, UsersView, UserView } from "../pages";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Search />} />
-        <Route path="/users/:username" element={<Users />} />
+        <Route path="/" element={<SearchView />} />
+        <Route path="/users/:username" element={<UsersView />} />
+        <Route path="/user/:username" element={<UserView />} />
       </Routes>
     </BrowserRouter>
   );

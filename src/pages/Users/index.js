@@ -1,15 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { searchUsers } from "../../services";
-import {
-  Avatar,
-  Box,
-  Card,
-  CardContent,
-  Container,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
+import { CustomCard } from "../../components";
 
 const Users = () => {
   const { username } = useParams();
@@ -35,21 +28,8 @@ const Users = () => {
       </Box>
       <Box>
         {usersList.length > 0 &&
-          usersList.map((user) => (
-            <Box mt={3}>
-              <Card>
-                <CardContent>
-                  <Grid container spacing={3}>
-                    <Grid item xs={1}>
-                      <Avatar src={user.avatar_url} />
-                    </Grid>
-                    <Grid item xs={11}>
-                      <Typography variant="body1">@{user.login}</Typography>
-                    </Grid>
-                  </Grid>
-                </CardContent>
-              </Card>
-            </Box>
+          usersList.map((user, index) => (
+            <CustomCard key={index} user={user} />
           ))}
       </Box>
     </Container>

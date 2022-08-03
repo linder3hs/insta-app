@@ -16,3 +16,18 @@ export const searchUsers = async (username) => {
     return error;
   }
 };
+
+/**
+ * Esta funcion va a traer el detalle de cada usuario
+ */
+export const searchUser = async (username) => {
+  try {
+    const response = await fetch(`${config.baseUrl}/users/${username}`);
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
