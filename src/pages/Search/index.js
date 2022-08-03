@@ -21,7 +21,7 @@ const Search = () => {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <TextField
-            label="Buscar usuario de instagram"
+            label="Buscar usuario de github"
             onChange={handleInputChange}
             value={username}
             fullWidth

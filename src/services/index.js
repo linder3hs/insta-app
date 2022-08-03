@@ -31,3 +31,20 @@ export const searchUser = async (username) => {
     return error;
   }
 };
+
+/**
+ * Esta funcion va a traer las repos publicas del usuario
+ */
+export const getRepos = async (username) => {
+  try {
+    const response = await fetch(
+      `${config.baseUrl}/users/${username}/repos?sort=created`
+    );
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
