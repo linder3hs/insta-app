@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { searchUsers } from "../../services";
 import { Box, Container, Typography } from "@mui/material";
 import { CustomCard } from "../../components";
@@ -7,12 +7,18 @@ import { CustomCard } from "../../components";
 const Users = () => {
   const { username } = useParams();
 
+  const history = useNavigate();
+
   const [usersList, setUsersList] = useState([]);
 
   const fetchUsers = async () => {
     const data = await searchUsers(username);
     setUsersList(data.items);
     console.log(data);
+  };
+
+  const handleClick = (username) => {
+    history(`/user/${username}`);
   };
 
   useEffect(() => {
@@ -29,7 +35,7 @@ const Users = () => {
       <Box>
         {usersList.length > 0 &&
           usersList.map((user, index) => (
-            <CustomCard key={index} user={user} />
+            <CustomCard key={index} user={user} handleClick={handleClick} />
           ))}
       </Box>
     </Container>

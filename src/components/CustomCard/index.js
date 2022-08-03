@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import {
   Avatar,
   Box,
@@ -8,13 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 
-const CustomCard = ({ user }) => {
-  const history = useNavigate();
-
-  const handleClick = (username) => {
-    history(`/user/${username}`);
-  };
-
+const CustomCard = ({ user, handleClick }) => {
   return (
     <Box mt={3}>
       <Card>
